@@ -1,0 +1,214 @@
+SCIENTIFIC REFERENCES FOR ENVIRONMENTAL DECISION SUPPORT
+
+1. FAO - Recarbonizing Global Soils
+
+Source:
+Food and Agriculture Organization of the United Nations (FAO), Recarbonizing Global Soils: A Technical Manual of Recommended Sustainable Soil Management.
+
+URL:
+https://www.fao.org/agroecology/in-action/detail/recarbonizing-global-soils-a-technical-manual-of-recommended-sustainable-soil-management/en
+
+Scientific relevance:
+Soil organic carbon (SOC) is an important indicator of soil health. Sustainable soil-management practices can increase or maintain SOC stocks. The manual reviews sustainable management practices and their effects on SOC across different agricultural systems.
+
+Relevant environmental metrics:
+- Soil organic carbon
+- Soil health
+- Carbon stocks
+- Soil fertility
+- Land degradation
+
+
+2. FAO - Conservation Agriculture
+
+Source:
+Food and Agriculture Organization of the United Nations (FAO), Conservation Agriculture.
+
+URL:
+https://www.fao.org/conservation-agriculture
+
+Scientific relevance:
+Conservation Agriculture is based on minimum soil disturbance, permanent soil cover and species diversification. These practices can support soil biological processes, improve water and nutrient use efficiency and enhance biodiversity.
+
+Relevant environmental metrics:
+- Soil moisture
+- Soil organic matter
+- Soil organic carbon
+- Water infiltration
+- Vegetation cover
+- Biodiversity
+
+
+3. FAO - Soil Organic Cover
+
+Source:
+Food and Agriculture Organization of the United Nations (FAO), Soil Organic Cover.
+
+URL:
+https://www.fao.org/conservation-agriculture/in-practice/soil-organic-cover/en/
+
+Scientific relevance:
+Crop residues, cover crops and mulch protect the soil surface. Soil cover can reduce evaporation, improve water infiltration, protect soil structure and provide organic material for soil organisms. Cover crops can also increase biodiversity in agricultural ecosystems.
+
+Relevant environmental metrics:
+- Soil moisture
+- Water infiltration
+- Soil structure
+- Soil organic matter
+- Soil biodiversity
+- Habitat availability
+
+
+4. FAO - Conservation Agriculture Principles
+
+Source:
+Food and Agriculture Organization of the United Nations (FAO), Conservation Agriculture Principles.
+
+URL:
+https://www.fao.org/conservation-agriculture/overview/conservation-agriculture-principles/en/
+
+Scientific relevance:
+Conservation Agriculture uses three major principles:
+1. Minimum mechanical soil disturbance
+2. Permanent soil organic cover
+3. Species diversification
+
+Species diversification can involve crop rotations and associations between multiple crops.
+
+Relevant environmental metrics:
+- Soil disturbance
+- Soil organic cover
+- Crop diversity
+- Soil biodiversity
+- Water conservation
+
+
+5. FAO - Benefits of Conservation Agriculture
+
+Source:
+Food and Agriculture Organization of the United Nations (FAO), Benefits of Conservation Agriculture.
+
+URL:
+https://www.fao.org/conservation-agriculture/impact/benefits-of-ca/en/
+
+Scientific relevance:
+Conservation Agriculture can improve soil productivity, water conservation, soil structure and biodiversity. Crop residues can increase infiltration and reduce runoff and erosion. Crop rotation and cover crops can help reduce biodiversity loss associated with monocropping.
+
+Relevant environmental metrics:
+- Soil organic matter
+- Soil water conservation
+- Soil structure
+- Soil erosion
+- Biodiversity
+- Carbon sequestration
+
+
+6. FAO - Conservation Agriculture and Water Holding Capacity
+
+Source:
+Abdallah, A. M., Jat, H. S., Choudhary, M., Abdelaty, E. F., Sharma, P. C., and Jat, M. L. (2021), Conservation Agriculture Effects on Soil Water Holding Capacity and Water-Saving Varied with Management Practices and Agroecological Conditions: A Review.
+
+URL:
+https://agris.fao.org/search/en/providers/123818/records/67235ca7b605bda15e0aa27d
+
+Scientific relevance:
+The review examines how conservation-agriculture practices such as minimum soil disturbance, crop diversification and mulch or crop-residue retention can influence soil organic carbon, soil structure, water holding capacity and water availability.
+
+Important limitation:
+The effect on whole-profile water holding capacity is not always large because SOC increases may initially be concentrated in the upper soil layers. Therefore, recommendations should not claim a guaranteed numerical increase in water holding capacity for every site.
+
+Relevant environmental metrics:
+- Soil organic carbon
+- Soil water holding capacity
+- Soil moisture
+- Water availability
+- Soil structure
+
+
+7. FAO - Soil Biodiversity
+
+Source:
+Food and Agriculture Organization of the United Nations (FAO), Soil Biodiversity and Sustainable Soil Management.
+
+URL:
+https://www.fao.org/agriculture/crops/thematic-sitemap/theme/spi/soil-biodiversity/initiatives/adaptive-management/en/
+
+Scientific relevance:
+Soil organisms contribute to soil structure, water infiltration, runoff regulation and moisture retention. Soil biological processes connect soil health, water availability and plant growth.
+
+Relevant environmental metrics:
+- Soil biodiversity
+- Water infiltration
+- Soil moisture retention
+- Soil structure
+- Biological activity
+
+
+8. FAO - Integrated Soil and Water Management in India
+
+Source:
+Food and Agriculture Organization of the United Nations (FAO), Integrated soil and water management essential to achieve food security in India.
+
+URL:
+https://www.fao.org/india/news/detail/Integrated-soil-and-water-management-essential-to-achieve-food-security-in-India-FAO/en
+
+Scientific relevance:
+FAO describes integrated soil and water management practices including minimum tillage, crop rotation, organic matter addition and cover cropping. These practices can improve soil health, reduce erosion and enhance water infiltration and storage.
+
+Relevant environmental metrics:
+- Soil health
+- Soil organic carbon
+- Soil biodiversity
+- Water infiltration
+- Water storage
+- Erosion
+
+
+SCIENTIFIC REASONING RULES FOR THE AI
+
+The AI should not claim that a recommendation will produce a fixed numerical improvement unless the retrieved scientific source provides evidence for that specific context.
+
+When quantitative evidence is unavailable:
+- describe the expected direction of change;
+- identify the environmental metric;
+- provide an appropriate time horizon;
+- clearly state that the magnitude depends on local conditions.
+
+Examples:
+
+Low soil organic carbon:
+Recommendation: Add organic residues, cover crops and diversified rotations.
+Expected direction: Soil organic carbon should increase over time under suitable management.
+Metric: Soil organic carbon percentage.
+Time horizon: Multi-season to multi-year.
+Evidence: FAO Recarbonizing Global Soils.
+
+Low rainfall and low soil moisture:
+Recommendation: Maintain soil cover and use water-conserving practices.
+Expected direction: Reduced evaporation and improved infiltration can support soil moisture availability.
+Metric: Soil moisture and water infiltration.
+Time horizon: Within growing seasons, with longer-term soil effects.
+Evidence: FAO Conservation Agriculture.
+
+Monoculture:
+Recommendation: Introduce crop rotation, intercropping or agroforestry.
+Expected direction: Increased crop and habitat diversity.
+Metric: Crop diversity, habitat diversity and species richness.
+Time horizon: Multiple growing seasons.
+Evidence: FAO Conservation Agriculture.
+
+Low habitat diversity:
+Recommendation: Retain or establish native vegetation strips, flowering plants and habitat patches.
+Expected direction: Increased habitat availability and landscape connectivity.
+Metric: Habitat diversity and connectivity.
+Time horizon: Medium to long term.
+Evidence: Relevant biodiversity and land-management literature.
+
+IMPORTANT:
+The system must distinguish between:
+- measured environmental data supplied by the user;
+- scientific evidence retrieved from the knowledge base;
+- expected direction of environmental change;
+- quantitative estimates supported by a specific study.
+
+The AI must not invent scientific measurements or guaranteed improvement percentages.

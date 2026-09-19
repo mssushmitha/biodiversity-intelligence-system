@@ -1,0 +1,27 @@
+{
+  "soil": {
+    "ph": 6.2,
+    "organic_carbon_percent": 0.3,
+    "moisture_percent": 12
+  },
+  "climate": {
+    "rainfall_mm_per_year": 500,
+    "average_temperature_celsius": 31
+  },
+  "land": {
+    "land_use": "agriculture",
+    "crop": "wheat",
+    "cropping_system": "monoculture"
+  },
+  "biodiversity": {
+    "species_richness": "low",
+    "habitat_diversity": "low"
+  },
+  "human_impact": {
+    "pollution_level": "low",
+    "deforestation_pressure": "medium"
+  },
+  "region": {
+    "type": "semi-arid"
+  }
+}

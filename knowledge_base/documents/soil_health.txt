@@ -1,0 +1,28 @@
+SOIL HEALTH AND ENVIRONMENTAL SUSTAINABILITY
+
+Soil organic carbon (SOC) is an important indicator of soil health. Increasing soil organic carbon can improve soil structure, water-holding capacity, nutrient cycling, and biological activity.
+
+Low soil organic carbon can reduce soil fertility and negatively affect soil organisms. Practices such as agroforestry, cover cropping, crop residue retention, compost application, and diversified cropping systems can help increase soil organic carbon over time.
+
+Soil pH affects nutrient availability and the activity of soil microorganisms. Most agricultural crops perform well within a moderately acidic to neutral pH range, although the optimum range depends on the crop.
+
+Soil moisture is important for plant growth and soil biodiversity. Low moisture can reduce plant productivity and can negatively affect organisms that depend on moist soil conditions.
+
+Soil health is connected to biodiversity. Healthy soils provide habitat and food resources for microorganisms, insects, earthworms, and other organisms. Increasing organic matter and reducing soil disturbance can support soil biodiversity.
+
+Environmental relationships:
+1. Soil organic carbon affects soil structure, water retention, and biological activity.
+2. Soil moisture affects plant survival and soil organism activity.
+3. Agricultural practices influence both soil health and biodiversity.
+4. Diversified cropping systems can provide more varied habitats than monoculture systems.
+
+Potential environmental metrics that can improve through sustainable soil management include:
+- Soil organic carbon percentage
+- Soil moisture retention
+- Soil biological activity
+- Habitat diversity
+- Species richness
+
+References:
+- FAO, Soil Organic Carbon: The Hidden Potential.
+- FAO, Voluntary Guidelines for Sustainable Soil Management.

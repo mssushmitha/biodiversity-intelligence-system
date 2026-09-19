@@ -1,0 +1,334 @@
+[
+    {
+        "text": "BIODIVERSITY AND HABITAT DIVERSITY",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "Biodiversity refers to the variety of living organisms in an ecosystem. Important biodiversity indicators include species richness, species abundance, habitat diversity, and the presence of native or sensitive species.",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "Species richness is the number of different species present in an area. Higher habitat diversity can support a greater variety of species because different organisms require different food sources, shelter, nesting areas, and environmental conditions.",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "Agricultural landscapes dominated by a single crop can provide fewer habitat types than diversified landscapes. Monoculture can reduce habitat diversity and may provide fewer resources for pollinators, birds, insects, and other organisms.",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "Agroforestry, intercropping, hedgerows, field margins, cover crops, and restoration of native vegetation can increase habitat complexity. Greater habitat complexity can provide additional food, shelter, nesting locations, and movement pathways for wildlife.",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "Biodiversity is connected with soil and water conditions:\n1. Healthy soils support microorganisms and soil organisms.\n2. Vegetation diversity can improve habitat availability.\n3. Water availability affects the survival and reproduction of many species.\n4. Habitat fragmentation can reduce connectivity between populations.\n5. Agricultural land management can influence both soil quality and biodiversity.",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "Important biodiversity metrics include:\n- Species richness\n- Species abundance\n- Habitat diversity\n- Pollinator abundance\n- Native vegetation cover\n- Habitat connectivity",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "Potential environmental improvements from biodiversity-friendly land management include:\n- Increased habitat diversity\n- Increased species richness\n- Improved pollinator habitat\n- Improved ecological connectivity\n- Greater soil biological activity",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "References:\n- IPBES, Global Assessment Report on Biodiversity and Ecosystem Services.\n- FAO, The State of the World's Biodiversity for Food and Agriculture.\n- Convention on Biological Diversity, Global Biodiversity Outlook.",
+        "source": "biodiversity.txt"
+    },
+    {
+        "text": "CLIMATE, LAND USE AND ENVIRONMENTAL CHANGE",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "Climate conditions strongly influence ecosystems, agriculture, water availability, and biodiversity. Important climate variables include temperature, rainfall, drought frequency, and seasonal variation.",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "Rainfall determines the amount of water available for plants, soil organisms, agricultural production, and wildlife. Low or irregular rainfall can increase water stress and reduce plant growth. Higher temperatures can increase evaporation and plant water demand.",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "Land use and land cover describe how land is occupied, such as forests, agricultural fields, grasslands, wetlands, and urban areas. Changes in land use can alter habitat availability and ecosystem functions.",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "Land-use change can cause habitat loss and fragmentation. When continuous natural habitats are divided into smaller isolated patches, movement and reproduction of some species can become more difficult.",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "Monoculture agriculture can reduce vegetation and habitat diversity compared with diversified agricultural systems. Intercropping, agroforestry, cover crops, hedgerows, and native vegetation can increase structural diversity in agricultural landscapes.",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "Important environmental relationships include:",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "1. Rainfall influences soil moisture and plant growth.\n2. Temperature influences evaporation and water requirements.\n3. Soil moisture influences plant survival and soil biodiversity.\n4. Land-use change influences habitat availability and species richness.\n5. Habitat fragmentation can reduce ecological connectivity.\n6. Vegetation cover can protect soil from erosion and improve habitat conditions.",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "Important environmental metrics include:",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "- Annual rainfall\n- Average temperature\n- Soil moisture\n- Vegetation cover\n- Land-use composition\n- Habitat connectivity\n- Species richness\n- Habitat diversity",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "For semi-arid agricultural regions, sustainable land management can include water conservation, diversified cropping, agroforestry, maintenance of vegetation buffers, and protection of natural habitat.",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "References:\n- IPCC, Climate Change 2022: Impacts, Adaptation and Vulnerability.\n- FAO, Land Cover and Land Use.\n- IPBES, Global Assessment Report on Biodiversity and Ecosystem Services.",
+        "source": "climate_land_use.txt"
+    },
+    {
+        "text": "SCIENTIFIC REFERENCES FOR ENVIRONMENTAL DECISION SUPPORT",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "1. FAO - Recarbonizing Global Soils",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Source:\nFood and Agriculture Organization of the United Nations (FAO), Recarbonizing Global Soils: A Technical Manual of Recommended Sustainable Soil Management.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "URL:\nhttps://www.fao.org/agroecology/in-action/detail/recarbonizing-global-soils-a-technical-manual-of-recommended-sustainable-soil-management/en",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Scientific relevance:\nSoil organic carbon (SOC) is an important indicator of soil health. Sustainable soil-management practices can increase or maintain SOC stocks. The manual reviews sustainable management practices and their effects on SOC across different agricultural systems.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Relevant environmental metrics:\n- Soil organic carbon\n- Soil health\n- Carbon stocks\n- Soil fertility\n- Land degradation",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "2. FAO - Conservation Agriculture",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Source:\nFood and Agriculture Organization of the United Nations (FAO), Conservation Agriculture.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "URL:\nhttps://www.fao.org/conservation-agriculture",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Scientific relevance:\nConservation Agriculture is based on minimum soil disturbance, permanent soil cover and species diversification. These practices can support soil biological processes, improve water and nutrient use efficiency and enhance biodiversity.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Relevant environmental metrics:\n- Soil moisture\n- Soil organic matter\n- Soil organic carbon\n- Water infiltration\n- Vegetation cover\n- Biodiversity",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "3. FAO - Soil Organic Cover",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Source:\nFood and Agriculture Organization of the United Nations (FAO), Soil Organic Cover.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "URL:\nhttps://www.fao.org/conservation-agriculture/in-practice/soil-organic-cover/en/",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Scientific relevance:\nCrop residues, cover crops and mulch protect the soil surface. Soil cover can reduce evaporation, improve water infiltration, protect soil structure and provide organic material for soil organisms. Cover crops can also increase biodiversity in agricultural ecosystems.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Relevant environmental metrics:\n- Soil moisture\n- Water infiltration\n- Soil structure\n- Soil organic matter\n- Soil biodiversity\n- Habitat availability",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "4. FAO - Conservation Agriculture Principles",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Source:\nFood and Agriculture Organization of the United Nations (FAO), Conservation Agriculture Principles.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "URL:\nhttps://www.fao.org/conservation-agriculture/overview/conservation-agriculture-principles/en/",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Scientific relevance:\nConservation Agriculture uses three major principles:\n1. Minimum mechanical soil disturbance\n2. Permanent soil organic cover\n3. Species diversification",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Species diversification can involve crop rotations and associations between multiple crops.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Relevant environmental metrics:\n- Soil disturbance\n- Soil organic cover\n- Crop diversity\n- Soil biodiversity\n- Water conservation",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "5. FAO - Benefits of Conservation Agriculture",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Source:\nFood and Agriculture Organization of the United Nations (FAO), Benefits of Conservation Agriculture.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "URL:\nhttps://www.fao.org/conservation-agriculture/impact/benefits-of-ca/en/",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Scientific relevance:\nConservation Agriculture can improve soil productivity, water conservation, soil structure and biodiversity. Crop residues can increase infiltration and reduce runoff and erosion. Crop rotation and cover crops can help reduce biodiversity loss associated with monocropping.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Relevant environmental metrics:\n- Soil organic matter\n- Soil water conservation\n- Soil structure\n- Soil erosion\n- Biodiversity\n- Carbon sequestration",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "6. FAO - Conservation Agriculture and Water Holding Capacity",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Source:\nAbdallah, A. M., Jat, H. S., Choudhary, M., Abdelaty, E. F., Sharma, P. C., and Jat, M. L. (2021), Conservation Agriculture Effects on Soil Water Holding Capacity and Water-Saving Varied with Management Practices and Agroecological Conditions: A Review.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "URL:\nhttps://agris.fao.org/search/en/providers/123818/records/67235ca7b605bda15e0aa27d",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Scientific relevance:\nThe review examines how conservation-agriculture practices such as minimum soil disturbance, crop diversification and mulch or crop-residue retention can influence soil organic carbon, soil structure, water holding capacity and water availability.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Important limitation:\nThe effect on whole-profile water holding capacity is not always large because SOC increases may initially be concentrated in the upper soil layers. Therefore, recommendations should not claim a guaranteed numerical increase in water holding capacity for every site.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Relevant environmental metrics:\n- Soil organic carbon\n- Soil water holding capacity\n- Soil moisture\n- Water availability\n- Soil structure",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "7. FAO - Soil Biodiversity",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Source:\nFood and Agriculture Organization of the United Nations (FAO), Soil Biodiversity and Sustainable Soil Management.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "URL:\nhttps://www.fao.org/agriculture/crops/thematic-sitemap/theme/spi/soil-biodiversity/initiatives/adaptive-management/en/",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Scientific relevance:\nSoil organisms contribute to soil structure, water infiltration, runoff regulation and moisture retention. Soil biological processes connect soil health, water availability and plant growth.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Relevant environmental metrics:\n- Soil biodiversity\n- Water infiltration\n- Soil moisture retention\n- Soil structure\n- Biological activity",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "8. FAO - Integrated Soil and Water Management in India",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Source:\nFood and Agriculture Organization of the United Nations (FAO), Integrated soil and water management essential to achieve food security in India.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "URL:\nhttps://www.fao.org/india/news/detail/Integrated-soil-and-water-management-essential-to-achieve-food-security-in-India-FAO/en",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Scientific relevance:\nFAO describes integrated soil and water management practices including minimum tillage, crop rotation, organic matter addition and cover cropping. These practices can improve soil health, reduce erosion and enhance water infiltration and storage.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Relevant environmental metrics:\n- Soil health\n- Soil organic carbon\n- Soil biodiversity\n- Water infiltration\n- Water storage\n- Erosion",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "SCIENTIFIC REASONING RULES FOR THE AI",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "The AI should not claim that a recommendation will produce a fixed numerical improvement unless the retrieved scientific source provides evidence for that specific context.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "When quantitative evidence is unavailable:\n- describe the expected direction of change;\n- identify the environmental metric;\n- provide an appropriate time horizon;\n- clearly state that the magnitude depends on local conditions.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Examples:",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Low soil organic carbon:\nRecommendation: Add organic residues, cover crops and diversified rotations.\nExpected direction: Soil organic carbon should increase over time under suitable management.\nMetric: Soil organic carbon percentage.\nTime horizon: Multi-season to multi-year.\nEvidence: FAO Recarbonizing Global Soils.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Low rainfall and low soil moisture:\nRecommendation: Maintain soil cover and use water-conserving practices.\nExpected direction: Reduced evaporation and improved infiltration can support soil moisture availability.\nMetric: Soil moisture and water infiltration.\nTime horizon: Within growing seasons, with longer-term soil effects.\nEvidence: FAO Conservation Agriculture.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Monoculture:\nRecommendation: Introduce crop rotation, intercropping or agroforestry.\nExpected direction: Increased crop and habitat diversity.\nMetric: Crop diversity, habitat diversity and species richness.\nTime horizon: Multiple growing seasons.\nEvidence: FAO Conservation Agriculture.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "Low habitat diversity:\nRecommendation: Retain or establish native vegetation strips, flowering plants and habitat patches.\nExpected direction: Increased habitat availability and landscape connectivity.\nMetric: Habitat diversity and connectivity.\nTime horizon: Medium to long term.\nEvidence: Relevant biodiversity and land-management literature.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "IMPORTANT:\nThe system must distinguish between:\n- measured environmental data supplied by the user;\n- scientific evidence retrieved from the knowledge base;\n- expected direction of environmental change;\n- quantitative estimates supported by a specific study.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "The AI must not invent scientific measurements or guaranteed improvement percentages.",
+        "source": "scientific_references.txt"
+    },
+    {
+        "text": "SOIL HEALTH AND ENVIRONMENTAL SUSTAINABILITY",
+        "source": "soil_health.txt"
+    },
+    {
+        "text": "Soil organic carbon (SOC) is an important indicator of soil health. Increasing soil organic carbon can improve soil structure, water-holding capacity, nutrient cycling, and biological activity.",
+        "source": "soil_health.txt"
+    },
+    {
+        "text": "Low soil organic carbon can reduce soil fertility and negatively affect soil organisms. Practices such as agroforestry, cover cropping, crop residue retention, compost application, and diversified cropping systems can help increase soil organic carbon over time.",
+        "source": "soil_health.txt"
+    },
+    {
+        "text": "Soil pH affects nutrient availability and the activity of soil microorganisms. Most agricultural crops perform well within a moderately acidic to neutral pH range, although the optimum range depends on the crop.",
+        "source": "soil_health.txt"
+    },
+    {
+        "text": "Soil moisture is important for plant growth and soil biodiversity. Low moisture can reduce plant productivity and can negatively affect organisms that depend on moist soil conditions.",
+        "source": "soil_health.txt"
+    },
+    {
+        "text": "Soil health is connected to biodiversity. Healthy soils provide habitat and food resources for microorganisms, insects, earthworms, and other organisms. Increasing organic matter and reducing soil disturbance can support soil biodiversity.",
+        "source": "soil_health.txt"
+    },
+    {
+        "text": "Environmental relationships:\n1. Soil organic carbon affects soil structure, water retention, and biological activity.\n2. Soil moisture affects plant survival and soil organism activity.\n3. Agricultural practices influence both soil health and biodiversity.\n4. Diversified cropping systems can provide more varied habitats than monoculture systems.",
+        "source": "soil_health.txt"
+    },
+    {
+        "text": "Potential environmental metrics that can improve through sustainable soil management include:\n- Soil organic carbon percentage\n- Soil moisture retention\n- Soil biological activity\n- Habitat diversity\n- Species richness",
+        "source": "soil_health.txt"
+    },
+    {
+        "text": "References:\n- FAO, Soil Organic Carbon: The Hidden Potential.\n- FAO, Voluntary Guidelines for Sustainable Soil Management.",
+        "source": "soil_health.txt"
+    }
+]

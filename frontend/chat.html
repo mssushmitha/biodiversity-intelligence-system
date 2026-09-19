@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darukaa Earth - Biodiversity Intelligence</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e8f5e9, #e3f2fd, #f3e5f5);
+            color: #263238;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32, #1565c0);
+            color: white;
+            padding: 22px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .language-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .language-buttons button {
+            border: none;
+            padding: 9px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            background: white;
+            color: #1b5e20;
+            font-weight: bold;
+        }
+
+        .language-buttons button.active {
+            background: #ffca28;
+            color: #263238;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .intro-card,
+        .input-card,
+        .result-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .intro-card {
+            margin-bottom: 25px;
+        }
+
+        .intro-card h2 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .intro-card p {
+            line-height: 1.7;
+            color: #455a64;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            border: 2px solid #c8e6c9;
+            border-radius: 14px;
+            padding: 16px;
+            resize: vertical;
+            font-size: 16px;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #43a047;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        button.action-btn {
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .analyze {
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: white;
+        }
+
+        .voice {
+            background: linear-gradient(135deg, #1565c0, #42a5f5);
+            color: white;
+        }
+
+        .speak {
+            background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+            color: white;
+        }
+
+        .stop {
+            background: #ef5350;
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            opacity: 0.92;
+        }
+
+        .status {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .results {
+            margin-top: 25px;
+            display: none;
+        }
+
+        .result-card {
+            margin-bottom: 20px;
+        }
+
+        .result-card h2 {
+            margin-bottom: 15px;
+            color: #1b5e20;
+        }
+
+        .summary-box {
+            background: #f1f8e9;
+            padding: 18px;
+            border-radius: 12px;
+            line-height: 1.8;
+        }
+
+        /* CLARIFICATION BOX */
+
+        .clarification-card {
+            background: linear-gradient(135deg, #fff8e1, #fff3cd);
+            border-left: 6px solid #ffb300;
+            border-radius: 15px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .clarification-card h2 {
+            color: #e65100;
+            margin-bottom: 12px;
+        }
+
+        .clarification-question {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #37474f;
+            margin-top: 12px;
+        }
+
+        .missing-info {
+            margin-top: 15px;
+            color: #5d4037;
+        }
+
+        .missing-info span {
+            display: inline-block;
+            background: #ffe0b2;
+            padding: 6px 10px;
+            border-radius: 15px;
+            margin: 4px;
+            font-size: 13px;
+        }
+
+        .recommendation {
+            border-left: 5px solid #43a047;
+            background: #fafafa;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .recommendation h3 {
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        .recommendation p {
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .source {
+            background: #f5f5f5;
+            border-left: 5px solid #1565c0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .source-title {
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 8px;
+        }
+
+        .source-text {
+            line-height: 1.6;
+            color: #455a64;
+        }
+
+        .source-number {
+            display: inline-block;
+            background: #1565c0;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-right: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #607d8b;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            button.action-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1 id="title">🌱 Darukaa Earth</h1>
+
+        <p id="subtitle">
+            AI-Powered Biodiversity & Environmental Intelligence
+        </p>
+    </div>
+
+    <div class="language-buttons">
+        <button id="englishBtn"
+                class="active"
+                onclick="setLanguage('en')">
+            English
+        </button>
+
+        <button id="kannadaBtn"
+                onclick="setLanguage('kn')">
+            ಕನ್ನಡ
+        </button>
+    </div>
+</header>
+
+
+<div class="container">
+
+    <!-- INTRODUCTION -->
+
+    <div class="intro-card">
+
+        <h2 id="introTitle">
+            🌍 Environmental Intelligence Assistant
+        </h2>
+
+        <p id="introText">
+            Describe your environmental conditions such as soil health,
+            rainfall, temperature, crops, biodiversity and land use.
+            The AI system will retrieve scientific knowledge and provide
+            evidence-based environmental recommendations.
+        </p>
+
+    </div>
+
+
+    <!-- INPUT -->
+
+    <div class="input-card">
+
+        <textarea
+            id="question"
+            placeholder="Example: My soil organic carbon is 0.4%, rainfall is 500 mm/year and I grow wheat as a monoculture."
+        ></textarea>
+
+
+        <div class="button-row">
+
+            <button
+                class="action-btn analyze"
+                id="analyzeBtn"
+                onclick="analyzeEnvironment()">
+                🔍 Analyze
+            </button>
+
+            <button
+                class="action-btn voice"
+                id="voiceBtn"
+                onclick="startVoiceInput()">
+                🎤 Voice Input
+            </button>
+
+            <button
+                class="action-btn speak"
+                id="speakBtn"
+                onclick="speakResult()">
+                🔊 Speak
+            </button>
+
+            <button
+                class="action-btn stop"
+                id="stopBtn"
+                onclick="stopSpeaking()">
+                ⏹ Stop Voice
+            </button>
+
+        </div>
+
+
+        <div class="status" id="status"></div>
+
+        <div class="error" id="errorBox"></div>
+
+    </div>
+
+
+    <!-- RESULTS -->
+
+    <div class="results" id="results">
+
+        <!-- CLARIFICATION -->
+
+        <div
+            class="clarification-card"
+            id="clarificationCard"
+            style="display:none;"
+        >
+
+            <h2 id="clarificationTitle">
+                ⚠️ More Information Needed
+            </h2>
+
+            <div
+                class="clarification-question"
+                id="clarificationQuestion">
+            </div>
+
+            <div
+                class="missing-info"
+                id="missingInformation">
+            </div>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="result-card" id="summaryCard">
+
+            <h2 id="summaryTitle">
+                🌿 Environmental Summary
+            </h2>
+
+            <div
+                class="summary-box"
+                id="summary">
+            </div>
+
+        </div>
+
+
+        <!-- RECOMMENDATIONS -->
+
+        <div class="result-card" id="recommendationCard">
+
+            <h2 id="recommendationTitle">
+                💡 Recommendations
+            </h2>
+
+            <div id="recommendations"></div>
+
+        </div>
+
+
+        <!-- SCIENTIFIC KNOWLEDGE -->
+
+        <div class="result-card" id="knowledgeCard">
+
+            <h2 id="knowledgeTitle">
+                📚 Scientific Knowledge
+            </h2>
+
+            <div id="knowledgeSources"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <span id="footerText">
+        AI-powered environmental decision support • Darukaa Earth
+    </span>
+
+</footer>
+
+
+<script>
+
+let currentLanguage = "en";
+
+let latestResult = null;
+
+
+/* ============================================================
+   TRANSLATIONS
+============================================================ */
+
+const translations = {
+
+    en: {
+
+        title: "🌱 Darukaa Earth",
+
+        subtitle:
+            "AI-Powered Biodiversity & Environmental Intelligence",
+
+        introTitle:
+            "🌍 Environmental Intelligence Assistant",
+
+        introText:
+            "Describe your environmental conditions such as soil health, rainfall, temperature, crops, biodiversity and land use. The AI system will retrieve scientific knowledge and provide evidence-based environmental recommendations.",
+
+        placeholder:
+            "Example: My soil organic carbon is 0.4%, rainfall is 500 mm/year and I grow wheat as a monoculture.",
+
+        analyze: "🔍 Analyze",
+
+        voice: "🎤 Voice Input",
+
+        speak: "🔊 Speak",
+
+        stop: "⏹ Stop Voice",
+
+        summaryTitle:
+            "🌿 Environmental Summary",
+
+        recommendationTitle:
+            "💡 Recommendations",
+
+        knowledgeTitle:
+            "📚 Scientific Knowledge",
+
+        clarificationTitle:
+            "⚠️ More Information Needed",
+
+        clarificationPrefix:
+            "Please provide the following information:",
+
+        footer:
+            "AI-powered environmental decision support • Darukaa Earth",
+
+        analyzing:
+            "Analyzing environmental conditions...",
+
+        completed:
+            "Analysis completed successfully ✅",
+
+        clarificationStatus:
+            "Additional environmental information is required.",
+
+        noSources:
+            "No retrieved knowledge sources found.",
+
+        noRecommendations:
+            "No recommendations available.",
+
+        action:
+            "What to do",
+
+        reason:
+            "Scientific reason",
+
+        metric:
+            "Environmental metric",
+
+        time:
+            "Time horizon",
+
+        reference:
+            "Scientific reference"
+    },
+
+
+    kn: {
+
+        title: "🌱 ದರುಕಾ ಅರ್ಥ್",
+
+        subtitle:
+            "AI ಆಧಾರಿತ ಜೀವ ವೈವಿಧ್ಯ ಮತ್ತು ಪರಿಸರ ಬುದ್ಧಿಮತ್ತೆ",
+
+        introTitle:
+            "🌍 ಪರಿಸರ ಬುದ್ಧಿಮತ್ತೆ ಸಹಾಯಕ",
+
+        introText:
+            "ಮಣ್ಣಿನ ಆರೋಗ್ಯ, ಮಳೆ, ತಾಪಮಾನ, ಬೆಳೆಗಳು, ಜೀವ ವೈವಿಧ್ಯ ಮತ್ತು ಭೂ ಬಳಕೆಯಂತಹ ಪರಿಸರ ಮಾಹಿತಿಯನ್ನು ನಮೂದಿಸಿ. AI ವ್ಯವಸ್ಥೆಯು ವೈಜ್ಞಾನಿಕ ಜ್ಞಾನವನ್ನು ಹುಡುಕಿ, ಸಾಕ್ಷ್ಯಾಧಾರಿತ ಪರಿಸರ ಶಿಫಾರಸುಗಳನ್ನು ನೀಡುತ್ತದೆ.",
+
+        placeholder:
+            "ಉದಾಹರಣೆ: ನನ್ನ ಮಣ್ಣಿನ ಸಾವಯವ ಇಂಗಾಲ 0.4% ಇದೆ, ವಾರ್ಷಿಕ ಮಳೆ 500 mm ಇದೆ ಮತ್ತು ನಾನು ಗೋಧಿಯನ್ನು ಏಕಬೆಳೆ ಪದ್ಧತಿಯಲ್ಲಿ ಬೆಳೆಯುತ್ತಿದ್ದೇನೆ.",
+
+        analyze:
+            "🔍 ವಿಶ್ಲೇಷಿಸಿ",
+
+        voice:
+            "🎤 ಧ್ವನಿ ಇನ್‌ಪುಟ್",
+
+        speak:
+            "🔊 ಧ್ವನಿಯಾಗಿ ಕೇಳಿ",
+
+        stop:
+            "⏹ ಧ್ವನಿ ನಿಲ್ಲಿಸಿ",
+
+        summaryTitle:
+            "🌿 ಪರಿಸರ ಸಾರಾಂಶ",
+
+        recommendationTitle:
+            "💡 ಶಿಫಾರಸುಗಳು",
+
+        knowledgeTitle:
+            "📚 ವೈಜ್ಞಾನಿಕ ಜ್ಞಾನ",
+
+        clarificationTitle:
+            "⚠️ ಹೆಚ್ಚಿನ ಮಾಹಿತಿ ಅಗತ್ಯವಿದೆ",
+
+        clarificationPrefix:
+            "ದಯವಿಟ್ಟು ಕೆಳಗಿನ ಮಾಹಿತಿಯನ್ನು ನೀಡಿ:",
+
+        footer:
+            "AI ಆಧಾರಿತ ಪರಿಸರ ನಿರ್ಧಾರ ಸಹಾಯ • ದರುಕಾ ಅರ್ಥ್",
+
+        analyzing:
+            "ಪರಿಸರ ಪರಿಸ್ಥಿತಿಯನ್ನು ವಿಶ್ಲೇಷಿಸಲಾಗುತ್ತಿದೆ...",
+
+        completed:
+            "ವಿಶ್ಲೇಷಣೆ ಯಶಸ್ವಿಯಾಗಿ ಪೂರ್ಣಗೊಂಡಿದೆ ✅",
+
+        clarificationStatus:
+            "ಹೆಚ್ಚುವರಿ ಪರಿಸರ ಮಾಹಿತಿ ಅಗತ್ಯವಿದೆ.",
+
+        noSources:
+            "ಯಾವುದೇ ವೈಜ್ಞಾನಿಕ ಜ್ಞಾನ ಮೂಲಗಳು ಕಂಡುಬಂದಿಲ್ಲ.",
+
+        noRecommendations:
+            "ಯಾವುದೇ ಶಿಫಾರಸುಗಳು ಲಭ್ಯವಿಲ್ಲ.",
+
+        action:
+            "ಏನು ಮಾಡಬೇಕು",
+
+        reason:
+            "ವೈಜ್ಞಾನಿಕ ಕಾರಣ",
+
+        metric:
+            "ಪರಿಸರ ಮಾಪಕ",
+
+        time:
+            "ಸಮಯಾವಧಿ",
+
+        reference:
+            "ವೈಜ್ಞಾನಿಕ ಉಲ್ಲೇಖ"
+    }
+};
+
+
+/* ============================================================
+   SET LANGUAGE
+============================================================ */
+
+function setLanguage(language) {
+
+    currentLanguage = language;
+
+    const t = translations[language];
+
+    document.documentElement.lang =
+        language === "kn" ? "kn" : "en";
+
+    document.getElementById("title").innerText =
+        t.title;
+
+    document.getElementById("subtitle").innerText =
+        t.subtitle;
+
+    document.getElementById("introTitle").innerText =
+        t.introTitle;
+
+    document.getElementById("introText").innerText =
+        t.introText;
+
+    document.getElementById("question").placeholder =
+        t.placeholder;
+
+    document.getElementById("analyzeBtn").innerText =
+        t.analyze;
+
+    document.getElementById("voiceBtn").innerText =
+        t.voice;
+
+    document.getElementById("speakBtn").innerText =
+        t.speak;
+
+    document.getElementById("stopBtn").innerText =
+        t.stop;
+
+    document.getElementById("summaryTitle").innerText =
+        t.summaryTitle;
+
+    document.getElementById("recommendationTitle").innerText =
+        t.recommendationTitle;
+
+    document.getElementById("knowledgeTitle").innerText =
+        t.knowledgeTitle;
+
+    document.getElementById("clarificationTitle").innerText =
+        t.clarificationTitle;
+
+    document.getElementById("footerText").innerText =
+        t.footer;
+
+    document.getElementById("englishBtn")
+        .classList.toggle("active", language === "en");
+
+    document.getElementById("kannadaBtn")
+        .classList.toggle("active", language === "kn");
+
+
+    if (latestResult) {
+
+        displayResult(latestResult);
+
+    }
+
+}
+
+
+/* ============================================================
+   ANALYZE ENVIRONMENT
+============================================================ */
+
+async function analyzeEnvironment() {
+
+    const question =
+        document.getElementById("question").value.trim();
+
+    const status =
+        document.getElementById("status");
+
+    const errorBox =
+        document.getElementById("errorBox");
+
+    const results =
+        document.getElementById("results");
+
+
+    if (!question) {
+
+        errorBox.style.display = "block";
+
+        errorBox.innerText =
+            currentLanguage === "kn"
+            ? "ದಯವಿಟ್ಟು ಪರಿಸರ ಮಾಹಿತಿಯನ್ನು ನಮೂದಿಸಿ."
+            : "Please enter environmental information.";
+
+        return;
+    }
+
+
+    errorBox.style.display = "none";
+
+    status.style.display = "block";
+
+    status.innerText =
+        translations[currentLanguage].analyzing;
+
+    results.style.display = "none";
+
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:5000/api/analyze",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    question: question,
+                    language: currentLanguage
+                })
+            }
+        );
+
+
+        const data = await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error || "Server error"
+            );
+
+        }
+
+
+        latestResult = data;
+
+        displayResult(data);
+
+        results.style.display = "block";
+
+
+        if (data.type === "clarification") {
+
+            status.innerText =
+                translations[currentLanguage]
+                .clarificationStatus;
+
+        } else {
+
+            status.innerText =
+                translations[currentLanguage]
+                .completed;
+
+        }
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        errorBox.style.display = "block";
+
+        errorBox.innerText =
+            currentLanguage === "kn"
+            ? "ಸರ್ವರ್ ಸಂಪರ್ಕದಲ್ಲಿ ದೋಷ ಸಂಭವಿಸಿದೆ. Backend ಚಾಲನೆಯಲ್ಲಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ."
+            : "An error occurred while connecting to the server. Please check that the backend is running.";
+
+    }
+
+}
+
+
+/* ============================================================
+   DISPLAY RESULT
+============================================================ */
+
+function displayResult(data) {
+
+    const t =
+        translations[currentLanguage];
+
+
+    const clarificationCard =
+        document.getElementById("clarificationCard");
+
+    const summaryCard =
+        document.getElementById("summaryCard");
+
+    const recommendationCard =
+        document.getElementById("recommendationCard");
+
+    const knowledgeCard =
+        document.getElementById("knowledgeCard");
+
+
+    /*
+    ============================================================
+    CLARIFICATION RESPONSE
+    ============================================================
+    */
+
+    if (data.type === "clarification") {
+
+        clarificationCard.style.display = "block";
+
+        summaryCard.style.display = "none";
+
+        recommendationCard.style.display = "none";
+
+        knowledgeCard.style.display = "none";
+
+
+        const clarificationQuestion =
+            document.getElementById(
+                "clarificationQuestion"
+            );
+
+
+        clarificationQuestion.innerHTML =
+            formatText(
+                data.clarification_question ||
+                (
+                    currentLanguage === "kn"
+                    ? "ಹೆಚ್ಚಿನ ಪರಿಸರ ಮಾಹಿತಿಯನ್ನು ನೀಡಿ."
+                    : "Please provide more environmental information."
+                )
+            );
+
+
+        const missingContainer =
+            document.getElementById(
+                "missingInformation"
+            );
+
+
+        const missing =
+            data.missing_information || [];
+
+
+        if (missing.length > 0) {
+
+            let html =
+                `<strong>${t.clarificationPrefix}</strong><br>`;
+
+            missing.forEach(item => {
+
+                html +=
+                    `<span>${escapeHtml(
+                        formatMissingField(item)
+                    )}</span>`;
+
+            });
+
+            missingContainer.innerHTML = html;
+
+        } else {
+
+            missingContainer.innerHTML = "";
+
+        }
+
+
+        return;
+
+    }
+
+
+    /*
+    ============================================================
+    NORMAL ANALYSIS
+    ============================================================
+    */
+
+    clarificationCard.style.display = "none";
+
+    summaryCard.style.display = "block";
+
+    recommendationCard.style.display = "block";
+
+    knowledgeCard.style.display = "block";
+
+
+    /*
+    ENVIRONMENTAL SUMMARY
+    */
+
+    const summary =
+        document.getElementById("summary");
+
+
+    if (data.summary) {
+
+        summary.innerHTML =
+            formatText(data.summary);
+
+    } else {
+
+        summary.innerHTML =
+            currentLanguage === "kn"
+            ? "ಪರಿಸರ ಸಾರಾಂಶ ಲಭ್ಯವಿಲ್ಲ."
+            : "Environmental summary is not available.";
+
+    }
+
+
+    /*
+    RECOMMENDATIONS
+    */
+
+    const recommendationContainer =
+        document.getElementById(
+            "recommendations"
+        );
+
+
+    recommendationContainer.innerHTML = "";
+
+
+    if (
+        data.recommendations &&
+        data.recommendations.length > 0
+    ) {
+
+        data.recommendations.forEach(
+            (rec, index) => {
+
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "recommendation";
+
+
+                if (typeof rec === "string") {
+
+                    card.innerHTML = `
+                        <h3>
+                            ${index + 1}. ${t.action}
+                        </h3>
+
+                        <p>
+                            ${escapeHtml(rec)}
+                        </p>
+                    `;
+
+                } else {
+
+                    const action =
+                        rec.action ||
+                        rec.recommendation ||
+                        "";
+
+                    const reason =
+                        rec.reason ||
+                        rec.scientific_reason ||
+                        "";
+
+                    const metric =
+                        rec.metric ||
+                        rec.environmental_metric ||
+                        "";
+
+                    const time =
+                        rec.time_horizon ||
+                        rec.time ||
+                        "";
+
+                    const reference =
+                        rec.reference ||
+                        rec.source ||
+                        "";
+
+
+                    card.innerHTML = `
+                        <h3>
+                            ${index + 1}. ${t.action}
+                        </h3>
+
+                        <p>
+                            ${escapeHtml(action)}
+                        </p>
+
+                        ${
+                            reason
+                            ? `
+                            <p>
+                                <strong>
+                                    ${t.reason}:
+                                </strong>
+                                ${escapeHtml(reason)}
+                            </p>
+                            `
+                            : ""
+                        }
+
+                        ${
+                            metric
+                            ? `
+                            <p>
+                                <strong>
+                                    ${t.metric}:
+                                </strong>
+                                ${escapeHtml(metric)}
+                            </p>
+                            `
+                            : ""
+                        }
+
+                        ${
+                            time
+                            ? `
+                            <p>
+                                <strong>
+                                    ${t.time}:
+                                </strong>
+                                ${escapeHtml(time)}
+                            </p>
+                            `
+                            : ""
+                        }
+
+                        ${
+                            reference
+                            ? `
+                            <p>
+                                <strong>
+                                    ${t.reference}:
+                                </strong>
+                                ${escapeHtml(reference)}
+                            </p>
+                            `
+                            : ""
+                        }
+                    `;
+                }
+
+
+                recommendationContainer
+                    .appendChild(card);
+
+            }
+        );
+
+    } else {
+
+        recommendationContainer.innerHTML = `
+            <p>
+                ${t.noRecommendations}
+            </p>
+        `;
+
+    }
+
+
+    /*
+    ============================================================
+    SCIENTIFIC KNOWLEDGE / RAG
+    ============================================================
+    */
+
+    const sourceContainer =
+        document.getElementById(
+            "knowledgeSources"
+        );
+
+
+    sourceContainer.innerHTML = "";
+
+
+    const sources =
+        data.rag_sources ||
+        data.knowledge_sources ||
+        [];
+
+
+    if (
+        Array.isArray(sources) &&
+        sources.length > 0
+    ) {
+
+        sources.forEach(
+            (source, index) => {
+
+                const sourceCard =
+                    document.createElement("div");
+
+                sourceCard.className =
+                    "source";
+
+
+                let sourceText = "";
+
+                let sourceName = "";
+
+
+                if (typeof source === "string") {
+
+                    sourceText = source;
+
+                } else {
+
+                    sourceText =
+                        source.text ||
+                        source.content ||
+                        source.chunk ||
+                        source.document ||
+                        "";
+
+                    sourceName =
+                        source.source ||
+                        source.filename ||
+                        source.file ||
+                        "";
+
+                }
+
+
+                if (currentLanguage === "kn") {
+
+                    sourceText =
+                        translateScientificSource(
+                            sourceText
+                        );
+
+                    sourceName =
+                        translateSourceName(
+                            sourceName
+                        );
+
+                }
+
+
+                sourceCard.innerHTML = `
+
+                    <div class="source-title">
+
+                        <span class="source-number">
+                            ${index + 1}
+                        </span>
+
+                        ${
+                            sourceName
+                            ? escapeHtml(sourceName)
+                            : (
+                                currentLanguage === "kn"
+                                ? "ವೈಜ್ಞಾನಿಕ ಜ್ಞಾನ ಮೂಲ"
+                                : "Scientific knowledge source"
+                            )
+                        }
+
+                    </div>
+
+                    <div class="source-text">
+
+                        ${formatText(sourceText)}
+
+                    </div>
+
+                `;
+
+
+                sourceContainer.appendChild(
+                    sourceCard
+                );
+
+            }
+        );
+
+    } else {
+
+        sourceContainer.innerHTML = `
+
+            <p>
+                ${t.noSources}
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+/* ============================================================
+   MISSING FIELD DISPLAY
+============================================================ */
+
+function formatMissingField(field) {
+
+    const english = {
+
+        "soil.organic_carbon_percent":
+            "Soil organic carbon (%)",
+
+        "soil.ph":
+            "Soil pH",
+
+        "soil.moisture_percent":
+            "Soil moisture (%)",
+
+        "climate.rainfall_mm_per_year":
+            "Annual rainfall (mm)",
+
+        "climate.average_temperature_celsius":
+            "Average temperature (°C)",
+
+        "land.land_use":
+            "Land use",
+
+        "land.crop":
+            "Crop",
+
+        "land.cropping_system":
+            "Cropping system",
+
+        "biodiversity.species_richness":
+            "Species richness",
+
+        "biodiversity.habitat_diversity":
+            "Habitat diversity",
+
+        "human_impact.pollution_level":
+            "Pollution level",
+
+        "human_impact.deforestation_pressure":
+            "Deforestation pressure"
+
+    };
+
+
+    const kannada = {
+
+        "soil.organic_carbon_percent":
+            "ಮಣ್ಣಿನ ಸಾವಯವ ಇಂಗಾಲ (%)",
+
+        "soil.ph":
+            "ಮಣ್ಣಿನ pH",
+
+        "soil.moisture_percent":
+            "ಮಣ್ಣಿನ ತೇವಾಂಶ (%)",
+
+        "climate.rainfall_mm_per_year":
+            "ವಾರ್ಷಿಕ ಮಳೆ (mm)",
+
+        "climate.average_temperature_celsius":
+            "ಸರಾಸರಿ ತಾಪಮಾನ (°C)",
+
+        "land.land_use":
+            "ಭೂ ಬಳಕೆ",
+
+        "land.crop":
+            "ಬೆಳೆ",
+
+        "land.cropping_system":
+            "ಬೆಳೆ ಪದ್ಧತಿ",
+
+        "biodiversity.species_richness":
+            "ಜಾತಿಗಳ ಸಮೃದ್ಧತೆ",
+
+        "biodiversity.habitat_diversity":
+            "ವಾಸಸ್ಥಳ ವೈವಿಧ್ಯತೆ",
+
+        "human_impact.pollution_level":
+            "ಮಾಲಿನ್ಯ ಮಟ್ಟ",
+
+        "human_impact.deforestation_pressure":
+            "ಅರಣ್ಯ ನಾಶದ ಒತ್ತಡ"
+
+    };
+
+
+    const dictionary =
+        currentLanguage === "kn"
+        ? kannada
+        : english;
+
+
+    return dictionary[field] || field;
+}
+
+
+/* ============================================================
+   SCIENTIFIC SOURCE TRANSLATION
+============================================================ */
+
+function translateScientificSource(text) {
+
+    if (!text) {
+
+        return "ವೈಜ್ಞಾನಿಕ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ.";
+
+    }
+
+
+    let translated = text;
+
+
+    const replacements = [
+
+        [/Soil organic carbon/gi,
+            "ಮಣ್ಣಿನ ಸಾವಯವ ಇಂಗಾಲ"],
+
+        [/organic carbon/gi,
+            "ಸಾವಯವ ಇಂಗಾಲ"],
+
+        [/soil organic matter/gi,
+            "ಮಣ್ಣಿನ ಸಾವಯವ ಪದಾರ್ಥ"],
+
+        [/soil health/gi,
+            "ಮಣ್ಣಿನ ಆರೋಗ್ಯ"],
+
+        [/soil moisture/gi,
+            "ಮಣ್ಣಿನ ತೇವಾಂಶ"],
+
+        [/soil pH/gi,
+            "ಮಣ್ಣಿನ pH"],
+
+        [/biodiversity/gi,
+            "ಜೀವ ವೈವಿಧ್ಯ"],
+
+        [/species richness/gi,
+            "ಜಾತಿಗಳ ಸಮೃದ್ಧತೆ"],
+
+        [/species diversity/gi,
+            "ಜಾತಿಗಳ ವೈವಿಧ್ಯತೆ"],
+
+        [/habitat diversity/gi,
+            "ವಾಸಸ್ಥಳ ವೈವಿಧ್ಯತೆ"],
+
+        [/habitat fragmentation/gi,
+            "ವಾಸಸ್ಥಳ ವಿಭಜನೆ"],
+
+        [/habitat/gi,
+            "ವಾಸಸ್ಥಳ"],
+
+        [/ecosystem/gi,
+            "ಪರಿಸರ ವ್ಯವಸ್ಥೆ"],
+
+        [/agriculture/gi,
+            "ಕೃಷಿ"],
+
+        [/agricultural land/gi,
+            "ಕೃಷಿ ಭೂಮಿ"],
+
+        [/monoculture/gi,
+            "ಏಕಬೆಳೆ ಪದ್ಧತಿ"],
+
+        [/crop diversity/gi,
+            "ಬೆಳೆ ವೈವಿಧ್ಯತೆ"],
+
+        [/intercropping/gi,
+            "ಅಂತರಬೆಳೆ ಪದ್ಧತಿ"],
+
+        [/crop rotation/gi,
+            "ಬೆಳೆ ಪರಿವರ್ತನೆ"],
+
+        [/agroforestry/gi,
+            "ಕೃಷಿ ಅರಣ್ಯ ಪದ್ಧತಿ"],
+
+        [/cover crops/gi,
+            "ಮುಚ್ಚಳ ಬೆಳೆಗಳು"],
+
+        [/compost/gi,
+            "ಕಾಂಪೋಸ್ಟ್"],
+
+        [/mulching/gi,
+            "ಮಲ್ಚಿಂಗ್"],
+
+        [/rainfall/gi,
+            "ಮಳೆ"],
+
+        [/annual rainfall/gi,
+            "ವಾರ್ಷಿಕ ಮಳೆ"],
+
+        [/temperature/gi,
+            "ತಾಪಮಾನ"],
+
+        [/climate/gi,
+            "ಹವಾಮಾನ"],
+
+        [/water availability/gi,
+            "ನೀರಿನ ಲಭ್ಯತೆ"],
+
+        [/water conservation/gi,
+            "ನೀರಿನ ಸಂರಕ್ಷಣೆ"],
+
+        [/drought-tolerant crops/gi,
+            "ಬರವನ್ನು ಸಹಿಸಬಲ್ಲ ಬೆಳೆಗಳು"],
+
+        [/drought/gi,
+            "ಬರ"],
+
+        [/land-use change/gi,
+            "ಭೂ ಬಳಕೆಯ ಬದಲಾವಣೆ"],
+
+        [/land use/gi,
+            "ಭೂ ಬಳಕೆ"],
+
+        [/fragmentation/gi,
+            "ವಾಸಸ್ಥಳ ವಿಭಜನೆ"],
+
+        [/deforestation/gi,
+            "ಅರಣ್ಯ ನಾಶ"],
+
+        [/pollution/gi,
+            "ಮಾಲಿನ್ಯ"],
+
+        [/soil erosion/gi,
+            "ಮಣ್ಣಿನ ಸವೆತ"],
+
+        [/nutrient cycling/gi,
+            "ಪೋಷಕಾಂಶ ಚಕ್ರ"],
+
+        [/carbon sequestration/gi,
+            "ಇಂಗಾಲ ಸಂಗ್ರಹಣೆ"],
+
+        [/carbon storage/gi,
+            "ಇಂಗಾಲ ಸಂಗ್ರಹಣೆ"],
+
+        [/water retention/gi,
+            "ನೀರನ್ನು ಹಿಡಿದಿಡುವ ಸಾಮರ್ಥ್ಯ"],
+
+        [/microbial activity/gi,
+            "ಸೂಕ್ಷ್ಮಜೀವಿಗಳ ಚಟುವಟಿಕೆ"],
+
+        [/soil microorganisms/gi,
+            "ಮಣ್ಣಿನ ಸೂಕ್ಷ್ಮಜೀವಿಗಳು"],
+
+        [/pollinators/gi,
+            "ಪರಾಗಸ್ಪರ್ಶಕ ಜೀವಿಗಳು"],
+
+        [/birds/gi,
+            "ಪಕ್ಷಿಗಳು"],
+
+        [/insects/gi,
+            "ಕೀಟಗಳು"],
+
+        [/plants/gi,
+            "ಸಸ್ಯಗಳು"],
+
+        [/native plants/gi,
+            "ಸ್ಥಳೀಯ ಸಸ್ಯಗಳು"],
+
+        [/field margins/gi,
+            "ಹೊಲದ ಅಂಚುಗಳು"],
+
+        [/soil structure/gi,
+            "ಮಣ್ಣಿನ ರಚನೆ"],
+
+        [/water infiltration/gi,
+            "ನೀರಿನ ಒಳನುಗ್ಗುವಿಕೆ"],
+
+        [/nutrient availability/gi,
+            "ಪೋಷಕಾಂಶಗಳ ಲಭ್ಯತೆ"],
+
+        [/environmental indicators/gi,
+            "ಪರಿಸರ ಸೂಚಕಗಳು"],
+
+        [/environmental metrics/gi,
+            "ಪರಿಸರ ಮಾಪಕಗಳು"],
+
+        [/sustainable agriculture/gi,
+            "ಸುಸ್ಥಿರ ಕೃಷಿ"],
+
+        [/sustainable land management/gi,
+            "ಸುಸ್ಥಿರ ಭೂ ನಿರ್ವಹಣೆ"],
+
+        [/restoration/gi,
+            "ಪುನಃಸ್ಥಾಪನೆ"],
+
+        [/scientific evidence/gi,
+            "ವೈಜ್ಞಾನಿಕ ಸಾಕ್ಷ್ಯ"],
+
+        [/scientific research/gi,
+            "ವೈಜ್ಞಾನಿಕ ಸಂಶೋಧನೆ"],
+
+        [/research/gi,
+            "ಸಂಶೋಧನೆ"],
+
+        [/study/gi,
+            "ಅಧ್ಯಯನ"],
+
+        [/increase/gi,
+            "ಹೆಚ್ಚಿಸುವುದು"],
+
+        [/decrease/gi,
+            "ಕಡಿಮೆ ಮಾಡುವುದು"],
+
+        [/improve/gi,
+            "ಸುಧಾರಿಸುವುದು"],
+
+        [/improves/gi,
+            "ಸುಧಾರಿಸುತ್ತದೆ"],
+
+        [/reduce/gi,
+            "ಕಡಿಮೆ ಮಾಡುತ್ತದೆ"],
+
+        [/supports/gi,
+            "ಬೆಂಬಲಿಸುತ್ತದೆ"],
+
+        [/increases/gi,
+            "ಹೆಚ್ಚಿಸುತ್ತದೆ"],
+
+        [/helps/gi,
+            "ಸಹಾಯ ಮಾಡುತ್ತದೆ"],
+
+        [/important/gi,
+            "ಪ್ರಮುಖ"],
+
+        [/low/gi,
+            "ಕಡಿಮೆ"],
+
+        [/high/gi,
+            "ಹೆಚ್ಚು"],
+
+        [/medium/gi,
+            "ಮಧ್ಯಮ"],
+
+        [/and/gi,
+            "ಮತ್ತು"],
+
+        [/because/gi,
+            "ಏಕೆಂದರೆ"],
+
+        [/therefore/gi,
+            "ಆದ್ದರಿಂದ"]
+
+    ];
+
+
+    replacements.forEach(
+        ([pattern, replacement]) => {
+
+            translated =
+                translated.replace(
+                    pattern,
+                    replacement
+                );
+
+        }
+    );
+
+
+    return translated;
+}
+
+
+/* ============================================================
+   SOURCE FILE NAME TRANSLATION
+============================================================ */
+
+function translateSourceName(name) {
+
+    if (!name) {
+        return "";
+    }
+
+
+    let translated = name;
+
+
+    translated =
+        translated.replace(
+            /soil_health/gi,
+            "ಮಣ್ಣಿನ ಆರೋಗ್ಯ"
+        );
+
+
+    translated =
+        translated.replace(
+            /climate_land_use/gi,
+            "ಹವಾಮಾನ ಮತ್ತು ಭೂ ಬಳಕೆ"
+        );
+
+
+    translated =
+        translated.replace(
+            /biodiversity/gi,
+            "ಜೀವ ವೈವಿಧ್ಯ"
+        );
+
+
+    translated =
+        translated.replace(
+            /\.txt$/i,
+            ""
+        );
+
+
+    return translated;
+}
+
+
+/* ============================================================
+   FORMAT TEXT
+============================================================ */
+
+function formatText(text) {
+
+    if (!text) {
+        return "";
+    }
+
+
+    return escapeHtml(String(text))
+        .replace(/\n/g, "<br>");
+}
+
+
+/* ============================================================
+   ESCAPE HTML
+============================================================ */
+
+function escapeHtml(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+}
+
+
+/* ============================================================
+   VOICE INPUT
+============================================================ */
+
+function startVoiceInput() {
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+
+    if (!SpeechRecognition) {
+
+        alert(
+            currentLanguage === "kn"
+            ? "ನಿಮ್ಮ ಬ್ರೌಸರ್ Voice Input ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ."
+            : "Your browser does not support Voice Input."
+        );
+
+        return;
+    }
+
+
+    const recognition =
+        new SpeechRecognition();
+
+
+    recognition.lang =
+        currentLanguage === "kn"
+        ? "kn-IN"
+        : "en-IN";
+
+
+    recognition.interimResults =
+        false;
+
+
+    recognition.continuous =
+        false;
+
+
+    recognition.start();
+
+
+    recognition.onstart = function() {
+
+        document.getElementById("status")
+            .style.display = "block";
+
+        document.getElementById("status")
+            .innerText =
+            currentLanguage === "kn"
+            ? "🎤 ಕೇಳಲಾಗುತ್ತಿದೆ..."
+            : "🎤 Listening...";
+    };
+
+
+    recognition.onresult =
+        function(event) {
+
+            const transcript =
+                event.results[0][0].transcript;
+
+
+            document.getElementById("question")
+                .value = transcript;
+
+
+            document.getElementById("status")
+                .innerText =
+                currentLanguage === "kn"
+                ? "ಧ್ವನಿ ಯಶಸ್ವಿಯಾಗಿ ಪಡೆಯಲಾಗಿದೆ."
+                : "Voice input received successfully.";
+        };
+
+
+    recognition.onerror =
+        function(event) {
+
+            console.error(
+                "Voice error:",
+                event.error
+            );
+
+
+            document.getElementById("status")
+                .innerText =
+                currentLanguage === "kn"
+                ? "ಧ್ವನಿ ಇನ್‌ಪುಟ್‌ನಲ್ಲಿ ದೋಷ ಸಂಭವಿಸಿದೆ."
+                : "Voice input error occurred.";
+        };
+
+
+    recognition.onend =
+        function() {
+
+            console.log(
+                "Voice recognition ended."
+            );
+
+        };
+
+}
+
+
+/* ============================================================
+   TEXT TO SPEECH
+============================================================ */
+
+function speakResult() {
+
+    if (!latestResult) {
+
+        alert(
+            currentLanguage === "kn"
+            ? "ಮೊದಲು ಪರಿಸರವನ್ನು ವಿಶ್ಲೇಷಿಸಿ."
+            : "Please analyze the environment first."
+        );
+
+        return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    let text = "";
+
+
+    /*
+    If backend returned clarification,
+    speak the clarification question.
+    */
+
+    if (latestResult.type === "clarification") {
+
+        text =
+            latestResult.clarification_question ||
+            "";
+
+    } else {
+
+        if (latestResult.summary) {
+
+            text +=
+                latestResult.summary + ". ";
+
+        }
+
+
+        if (
+            latestResult.recommendations &&
+            latestResult.recommendations.length
+        ) {
+
+            latestResult.recommendations.forEach(
+                recommendation => {
+
+                    if (
+                        typeof recommendation ===
+                        "string"
+                    ) {
+
+                        text +=
+                            recommendation + ". ";
+
+                    } else {
+
+                        text +=
+                            (
+                                recommendation.action ||
+                                recommendation.recommendation ||
+                                ""
+                            ) + ". ";
+
+                    }
+
+                }
+            );
+
+        }
+
+    }
+
+
+    const utterance =
+        new SpeechSynthesisUtterance(text);
+
+
+    utterance.lang =
+        currentLanguage === "kn"
+        ? "kn-IN"
+        : "en-IN";
+
+
+    utterance.rate = 0.9;
+
+    utterance.pitch = 1;
+
+
+    const voices =
+        window.speechSynthesis.getVoices();
+
+
+    if (currentLanguage === "kn") {
+
+        const kannadaVoice =
+            voices.find(
+                voice =>
+                    voice.lang &&
+                    voice.lang
+                        .toLowerCase()
+                        .startsWith("kn")
+            );
+
+
+        if (kannadaVoice) {
+
+            utterance.voice =
+                kannadaVoice;
+
+        }
+
+    } else {
+
+        const englishVoice =
+            voices.find(
+                voice =>
+                    voice.lang &&
+                    voice.lang
+                        .toLowerCase()
+                        .startsWith("en-IN")
+            );
+
+
+        if (englishVoice) {
+
+            utterance.voice =
+                englishVoice;
+
+        }
+
+    }
+
+
+    window.speechSynthesis.speak(
+        utterance
+    );
+
+}
+
+
+/* ============================================================
+   STOP SPEAKING
+============================================================ */
+
+function stopSpeaking() {
+
+    window.speechSynthesis.cancel();
+
+}
+
+
+/* ============================================================
+   LOAD SPEECH VOICES
+============================================================ */
+
+window.speechSynthesis.onvoiceschanged =
+    function() {
+
+        window.speechSynthesis.getVoices();
+
+    };
+
+</script>
+
+</body>
+</html>
